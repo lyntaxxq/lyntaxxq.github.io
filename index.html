@@ -1,9 +1,215 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lyntaxxq | github.io</title>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --text: #f5f5f5;
+      --subtle: #bdbdbd;
+      --accent: #ffffff;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Google Sans", sans-serif;
+      background: #1a1a1a;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header { padding: 4rem 1.5rem 2rem; max-width: 800px; margin: 0 auto; }
+    header h1 { margin: 0; font-size: 2.4rem; letter-spacing: -0.5px; }
+    nav { margin-top: 2rem; }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 1.5rem;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    nav a:hover::after { width: 100%; }
+
+    section { max-width: 800px; margin: 4rem auto; padding: 0 1.5rem; text-align: left; }
+    section h2 { font-size: 1.6rem; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+    section p, ul li { color: var(--subtle); font-size: 1rem; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    ul li { margin: 0.6rem 0; }
+    ul li strong { color: var(--text); }
+
+    footer {
+      text-align: left;
+      padding: 2rem 1.5rem;
+      color: var(--subtle);
+      font-size: 0.9rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-top: 2px solid transparent;
+      background: linear-gradient(to right, #555, #fff, #555) top/100% 2px no-repeat;
+    }
+
+    .fade-in { opacity: 0; transform: translateY(15px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .visible { opacity: 1; transform: translateY(0); }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      nav a { display: inline-block; margin-right: 1rem; }
+    }
+
+    #clock {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      color: #fff;
+      font-family: "Google Sans", sans-serif;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.05);
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.1);
+      letter-spacing: 1px;
+      user-select: none;
+      z-index: 1000;
+    }
+    #clock:hover { background: rgba(255,255,255,0.15); transition: background 0.3s; }
+
+    #status {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      color: #fff;
+      font-family: "Google Sans", sans-serif;
+      font-size: 1.1rem;
+      background: rgba(255,255,255,0.05);
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.1);
+      letter-spacing: 0.5px;
+      user-select: none;
+      z-index: 1000;
+    }
+
+    #easter-egg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #000;
+      color: #fff;
+      font-family: "Google Sans", sans-serif;
+      padding: 20px 30px;
+      border-radius: 12px;
+      border: 2px solid #ccc;
+      font-size: 1.2rem;
+      display: none;
+      z-index: 2000;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #easter-egg.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="status">lyntaxxq sleeping right now.</div>
+  <div id="clock"></div>
+  <div id="easter-egg">wow, you found me. im an easter egg 🥚.</div>
+
+  <header class="fade-in">
+    <h1>lyntaxxq</h1>
+    <nav>
+      <a href="#whoami">who am i?</a>
+      <a href="#langs">programming languages that i know</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <section id="whoami" class="fade-in">
+    <h2>who am i?</h2>
+    <p>hello, i'm just a simple guy. like a monkey, i peel the banana, i eat the banana.</p>
+  </section>
+
+  <section id="langs" class="fade-in">
+    <h2>programming languages that i know</h2>
+    <ul>
+      <li>html and css</li>
+      <li>python, little csharp and apple plist.</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <h2>projects</h2>
+    <ul>
+      <li>GIGABYTE H110M S2-CF OpenCore EFI: <a href="https://github.com/lyntaxxq/H110M-S2-OC" target="_blank">here</a></li>
+      <li>private joyeuse vendor (sshhh): <a href="about:blank" target="_blank">not public for now</a></li>
+    </ul>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>contact with me</h2>
+    <p>Instagram: <a href="https://instagram.com/gorkemm._._" target="_blank">@gorkemmm._._</a></p>
+  </section>
+
+  <footer>
+    lyntaxxq. some private projects will be public later. like everything will be :)
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    function updateClock() {
+      const now = new Date();
+      const optionsTime = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+      const optionsDate = { timeZone: 'Europe/Berlin', weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit' };
+      const timeString = now.toLocaleTimeString('en-GB', optionsTime);
+      const dateString = now.toLocaleDateString('en-GB', optionsDate);
+      document.getElementById('clock').textContent = `${dateString} | ${timeString}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const clockEl = document.getElementById('clock');
+    const eggEl = document.getElementById('easter-egg');
+
+    clockEl.addEventListener('click', () => {
+      eggEl.style.display = 'block';
+      setTimeout(() => eggEl.classList.add('show'), 10);
+      setTimeout(() => {
+        eggEl.classList.remove('show');
+        setTimeout(() => { eggEl.style.display = 'none'; }, 500);
+      }, 3000);
+    });
+  </script>
+</body>
 </html>
