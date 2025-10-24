@@ -1,2 +1,1 @@
-# lyntaxxq.github.io
-website and nothing more.
+meow meow
