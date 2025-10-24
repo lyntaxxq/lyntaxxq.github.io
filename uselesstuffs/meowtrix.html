@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pspspsss meowtrix rain</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  color: #0f0;
+  font-family: monospace;
+}
+#message {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: #0f0;
+  font-size: 1.2em;
+  text-shadow: 0 0 10px #0f0;
+}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<div id="message"></div>
+<script>
+const c = document.getElementById('matrix');
+const ctx = c.getContext('2d');
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+const chars = "アァカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVMEOW";
+const fontSize = 16;
+const cols = c.width / fontSize;
+const drops = Array(Math.floor(cols)).fill(1);
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle = "#0f0";
+  ctx.font = fontSize + "px monospace";
+  for (let i=0; i<drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    if (drops[i] * fontSize > c.height && Math.random() > 0.975)
+      drops[i] = 0;
+    drops[i]++;
+  }
+}
+setInterval(draw, 35);
+const messages = [
+  "wake up kitten... its breakfast time...",
+  "the selected kitten is you...",
+  "follow the rat and eat it...",
+  "there is no food...",
+  "system pspsspp.",
+  "you are the kitten..."
+];
+document.addEventListener('keydown', () => {
+  const m = messages[Math.floor(Math.random() * messages.length)];
+  const el = document.getElementById('message');
+  el.textContent = m;
+  setTimeout(()=>el.textContent='',1500);
+});
+</script>
+</body>
+</html>
